@@ -1,7 +1,8 @@
 board = []
 winScan = ["012", "345", "678", "036", "147", "258", "048", "642"]
 turn = "o"
-winner = "None"
+winner = "Nobody"
+turnAmount = 1
 
 for t in range(9):
     board.append(str(t + 1))
@@ -41,9 +42,10 @@ def scan_board():
             winner = "O"
 
 display_board()
-while winner == "None":
+while winner == "Nobody" and turnAmount < 10:
     set_turn()
     take_turn()
     display_board()
     scan_board()
+    turnAmount += 1
 print(winner + " wins!\nGood game. Thanks for playing!")
